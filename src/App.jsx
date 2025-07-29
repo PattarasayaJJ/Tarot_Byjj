@@ -5,7 +5,6 @@ import HomeSection from './components/HomeSection';
 import DrawingSection from './components/DrawingSection';
 import ResultSection from './components/ResultSection';
 
-
 function App() {
   const [currentSection, setCurrentSection] = useState('home');
   const [selectedCards, setSelectedCards] = useState([]);
@@ -34,18 +33,31 @@ function App() {
     return () => clearInterval(interval);
   }, []);
 
-  const shuffleCards = () => [...allCards].sort(() => Math.random() - 0.5);
+  const shuffleCards = (cards) => [...cards].sort(() => Math.random() - 0.5);
 
   const drawCards = async () => {
-
     setCurrentSection('drawing');
 
     await new Promise(res => setTimeout(res, 3000));
 
-    const shuffled = shuffleCards();
+    let cardsToDrawFrom;
 
- let cardsCount = 1; 
-  if (spreadType === 'celtic') cardsCount = 10;
+    if (spreadType === 'love') {
+      // เช็คให้แน่ใจ card.id เป็น string ก่อนเรียก startsWith('l')
+      cardsToDrawFrom = allCards.filter(
+        (card) => typeof card.id === 'string' && card.id.startsWith('l')
+      );
+    } else {
+      cardsToDrawFrom = allCards.filter(
+        (card) => !(typeof card.id === 'string' && card.id.startsWith('l'))
+      );
+    }
+
+    const shuffled = shuffleCards(cardsToDrawFrom);
+
+    let cardsCount = 1;
+    if (spreadType === 'celtic') cardsCount = 10;
+    else if (spreadType === 'love') cardsCount = 1;
 
     setSelectedCards(shuffled.slice(0, cardsCount));
     setCurrentSection('result');
@@ -60,9 +72,20 @@ function App() {
     if (type === 'single') return 'ดวงวันนี้';
     if (type === 'celtic') {
       return [
-        '1. สถานการณ์ปัจจุบัน', '2. อุปสรรคหรือสิ่งขวางทาง', ' 3. อดีตที่ผ่านมา', '4. อดีตที่ผ่านมาไม่นาน',
-        '5. สิ่งที่คุณต้องการหรือเป้าหมาย ', ' 6. สิ่งที่ลึก ๆ อยู่ในใจ',' 7. อนาคตอันใกล้','8. ตัวคุณในสถานการณ์นี้','9. สิ่งรอบตัว/คนรอบข้าง','10. ผลลัพธ์สุดท้าย'
+        '1. สถานการณ์ปัจจุบัน',
+        '2. อุปสรรคหรือสิ่งขวางทาง',
+        '3. อดีตที่ผ่านมา',
+        '4. อดีตที่ผ่านมาไม่นาน',
+        '5. สิ่งที่คุณต้องการหรือเป้าหมาย',
+        '6. สิ่งที่ลึก ๆ อยู่ในใจ',
+        '7. อนาคตอันใกล้',
+        '8. ตัวคุณในสถานการณ์นี้',
+        '9. สิ่งรอบตัว/คนรอบข้าง',
+        '10. ผลลัพธ์สุดท้าย',
       ][index];
+    }
+    if (type === 'love') {
+      return 'ดวงความรักช่วงนี้';
     }
     return '';
   };
@@ -70,18 +93,19 @@ function App() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-black relative overflow-hidden text-white">
       <div className="absolute inset-0">
-        {particles.map(p => <Particle key={p.id} particle={p} />)}
+        {particles.map((p) => (
+          <Particle key={p.id} particle={p} />
+        ))}
       </div>
 
       <div className="relative z-10">
         {currentSection === 'home' && (
-         <HomeSection
-  spreadType={spreadType}
-  setSpreadType={setSpreadType}
-  spreadTypes={spreadTypes}
-  drawCards={drawCards}
-/>
-
+          <HomeSection
+            spreadType={spreadType}
+            setSpreadType={setSpreadType}
+            spreadTypes={spreadTypes}
+            drawCards={drawCards}
+          />
         )}
         {currentSection === 'drawing' && <DrawingSection />}
         {currentSection === 'result' && (
@@ -90,7 +114,6 @@ function App() {
             spreadType={spreadType}
             spreadTypes={spreadTypes}
             getCardPositionName={getCardPositionName}
-            drawCards={drawCards}
             resetReading={resetReading}
           />
         )}

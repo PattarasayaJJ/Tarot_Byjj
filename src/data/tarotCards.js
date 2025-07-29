@@ -90,7 +90,17 @@ export const tarotCards = {
       { id: 'pk', name: 'Knight of Pentacles', thai: 'อัศวินเหรียญ', meaning: 'คุณเป็นคนขยัน มั่นคง ทำอะไรเป็นขั้นเป็นตอน ช้าแต่ชัวร์ ระวังอย่าให้ความยึดติดกับ “ต้องเป๊ะ” ทำให้คุณยืดหยุ่นไม่ได้เลย', image: 'https://www.shitsuren-tarot.com/wp/wp-content/uploads/2017/06/kn_p.png' },
       { id: 'pq', name: 'Queen of Pentacles', thai: 'ราชินีเหรียญ', meaning: 'คุณดูแลทั้งตัวเองและคนรอบข้างดีมาก มีพลังแม่บ้าน/คนดูแลที่พร้อมให้ความรักแบบมั่นคง ระวังอย่าแบกทุกอย่างไว้คนเดียวจนล้าโดยไม่รู้ตัว', image: 'https://www.shitsuren-tarot.com/wp/wp-content/uploads/2017/06/q_p.png' },
       { id: 'pki', name: 'King of Pentacles', thai: 'กษัตริย์เหรียญ', meaning: 'คุณอยู่ในจุดที่มีอำนาจ มีความมั่นคง และรู้ว่าต้องทำยังไงถึงจะสำเร็จ ระวังอย่าหลงในความสำเร็จหรือวัตถุมากเกินไปจนกลายเป็นเย็นชา', image: 'https://www.shitsuren-tarot.com/wp/wp-content/uploads/2017/06/k_p.png' }
-    ]
+    ],
+
+      lover: [
+      { id: 'l1', name: 'Old love', thai: 'ไพ่คนเก่า', meaning: 'มีเกณฑ์คนเก่าวนกลับมา ไม่รู้มันจะทักมาทำไมนักหนาเดี๋ยวกูก็ตอบหรอก', image: 'https://www.thebangkokinsight.com/wp-content/uploads/2024/09/%E0%B9%82%E0%B8%95%E0%B9%89%E0%B8%87%E0%B8%9E%E0%B8%A5%E0%B8%AD%E0%B8%A2Snapinsta.app_460360772_18470196334056329_8759870291686388092_n_1080.jpg' },
+      { id: 'l2', name: 'New love', thai: 'ไพ่คนใหม่', meaning: 'มีเกณฑ์ได้เจอคนใหม่ แต่ก็ต้องออกบ้านบ้างงั้นจะเจอได้ไง ไม่ก็ไปโหลดทินเดอร์ซะ' , image: 'https://static.dezeen.com/uploads/2017/08/tinder-redesign-graphics_dezeen_sq-1.jpg' },
+      { id: 'l3', name: 'Alone', thai: 'ไพ่เหม่ยลี่', meaning: 'โสดยาวๆ แห้งๆ โดดเดี่ยวไปนะไม่ได้ดูจากไพ่หรอกดูจากสันดาน', image: 'https://topicstock.pantip.com/chalermthai/topicstock/2009/10/A8473445/A8473445-13.jpg' },
+      { id: 'l4', name: 'Tattoo Colour', thai: 'จำทำไม', meaning: 'ผ่านมา10ปี10ชาติ ก็ยังรักคนเก่า เรียนหนังสือไม่เคยจำ จำได้แต่ชื่อคนเก่า ช่วงนี้มีเกณฑ์คิดถึงคนเก่า' , image: 'https://mpics.mgronline.com/pics/Images/561000004614701.JPEG'},
+      { id: 'l5', name: 'Takkataēn', thai: 'อยากเป็นครรักไม่อยากเป็นชู้', meaning: 'มีเกณฑ์ไปหลงรักคนมีเจ้าของ หรือไม่ก็คนที่คุยอยู่มีแฟนอยู่แล้ว ', image: 'https://s.isanook.com/jo/0/ud/476/2380197/111.jpg' },
+
+     
+    ],
   };
 
   export const allCards = [
@@ -99,9 +109,14 @@ export const tarotCards = {
   ...tarotCards.cups,
   ...tarotCards.swords,
   ...tarotCards.pentacles,
+  ...tarotCards.lover,
+
 ];
 
 export const spreadTypes = [
-  { id: 'single', name: 'ดูดวงรายวัน', description: 'คำตอบชัดเจน 1 ใบ' },
-  { id: 'celtic', name: 'ดูดวงรายเดือน', description: '10 ใบ แสดงภาพรวม' },
+  { id: 'single', name: 'ดูดวงรายวัน', description: 'เปิดไพ่1ใบ' },
+  { id: 'celtic', name: 'ดูดวงรายเดือน', description: 'เปิดไพ่10ใบ ภาพรวมตลอดเดือน' },
+  { id: 'love', name: 'ดูดวงความรัก', description: 'สำหรับคนโสด' },
+
+
 ];

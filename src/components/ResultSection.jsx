@@ -17,7 +17,7 @@ export default function ResultSection({
         {selectedCards.map((card, i) => (
           <div
             key={card.id}
-            className="bg-gradient-to-r from-violet-900 via-purple-900 to-purple-900 p-4 rounded shadow"
+            className="bg-gradient-to-r from-indigo-900 via-purple-900 to-purple-900 p-4 rounded shadow"
           >
             {/* ตำแหน่งไพ่ */}
 <h1 className="text-sm mb-3">
