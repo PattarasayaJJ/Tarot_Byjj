@@ -10,17 +10,20 @@ export default function ResultSection({
   return (
     <div className="p-6 max-w-3xl mx-auto text-white">
       <p className="mb-6">
-        ชนิดการดูไพ่: {spreadTypes.find(s => s.id === spreadType)?.name || ''}
+        {spreadTypes.find(s => s.id === spreadType)?.name || ''}
       </p>
 
       <div className="flex flex-col gap-5 mb-5">
         {selectedCards.map((card, i) => (
           <div
             key={card.id}
-            className="bg-purple-800 p-4 rounded shadow"
+            className="bg-gradient-to-r from-violet-900 via-purple-900 to-purple-900 p-4 rounded shadow"
           >
             {/* ตำแหน่งไพ่ */}
-            <h1 className="text-sm mb-3">{getCardPositionName(i, spreadType)}</h1>
+<h1 className="text-sm mb-3">
+  <span className="text-white mr-2">•</span>
+  {getCardPositionName(i, spreadType)}
+</h1>
 
             {/* ไพ่ + คำทำนาย */}
             <div className="flex items-center gap-6">
@@ -44,16 +47,22 @@ className="w-full h-full object-contain rounded-lg"                    />
             </div>
           </div>
         ))}
+
+        <p className="text-xs text-white mt-12 opacity-50 text-center">
+               ระบบสุ่ม100% เอาไรมาตรงเอ่ยย ?? แต่ถ้าตรงก็แสดงว่าบังเอิญ</p>
+             
       </div>
 
-      <div className="flex gap-4">
-        <button
-          onClick={resetReading}
-          className="bg-red-600 px-4 py-2 rounded hover:bg-red-800"
-        >
-          ดูอีกครั้ง
-        </button>
-      </div>
+     {/* ปุ่มอยู่กึ่งกลาง */}
+<div className="flex justify-center mt-4">
+  <button
+    onClick={resetReading}
+        className="bg-yellow-400 text-purple-900 font-semibold px-6 py-2 rounded-full hover:bg-yellow-300 hover:scale-105 transition duration-300 block mx-auto"
+  >
+ดูอีกรอบเพื่อความชัวร์  </button>
+</div>
+
     </div>
   );
 }
+ 

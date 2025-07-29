@@ -5,18 +5,16 @@ export default function HomeSection({
   spreadTypes,
   drawCards
 }) {
+  const filteredSpreadTypes = spreadTypes.filter(type => type.id !== 'three');
+
   return (
-    <div className="p-6 max-w-5xl mx-auto text-white">
- <h1 className="text-3xl mb-6 font-bold tracking-wide text-white text-center animate-float-around glow-text">
-  JEJEY TAROT
-</h1>
+    <div className="p-6 max-w-5xl mx-auto text-white min-h-screen flex flex-col justify-center items-center">
+      <h1 className="text-3xl mb-12 font-bold tracking-wide text-white text-center animate-float-around glow-text">
+        JEJEY TAROT
+      </h1>
 
-
-
-
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mb-8 place-items-center">
-        {spreadTypes.map(type => (
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mb-8 justify-center items-center">
+        {filteredSpreadTypes.map(type => (
           <div
             key={type.id}
             onClick={() => setSpreadType(type.id)}
@@ -53,8 +51,11 @@ export default function HomeSection({
         onClick={drawCards}
         className="bg-yellow-400 text-purple-900 font-semibold px-6 py-2 rounded-full hover:bg-yellow-300 hover:scale-105 transition duration-300 block mx-auto"
       >
-        เริ่มดูดวง
-      </button>
+ดูดวงเล้ยยยย!!      </button>
+
+      <p className="text-xs text-white mt-12 opacity-50 text-center">
+               ดูดวงกับ @jjpatts_  อย่าซีเรียสเพราะฉันคือหมอเดา ถ้าตรงแสดงว่าคุณเพ้อเจ้อแล้วแหละ    </p>
+             
     </div>
   );
 }

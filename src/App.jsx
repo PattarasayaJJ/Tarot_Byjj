@@ -9,8 +9,6 @@ import ResultSection from './components/ResultSection';
 function App() {
   const [currentSection, setCurrentSection] = useState('home');
   const [selectedCards, setSelectedCards] = useState([]);
-  const [userName, setUserName] = useState('');
-  const [question, setQuestion] = useState('');
   const [spreadType, setSpreadType] = useState('single');
   const [particles, setParticles] = useState([]);
 
@@ -46,9 +44,8 @@ function App() {
 
     const shuffled = shuffleCards();
 
-    let cardsCount = 1;
-    if (spreadType === 'three') cardsCount = 3;
-    else if (spreadType === 'celtic') cardsCount = 10;
+ let cardsCount = 1; 
+  if (spreadType === 'celtic') cardsCount = 10;
 
     setSelectedCards(shuffled.slice(0, cardsCount));
     setCurrentSection('result');
@@ -57,17 +54,14 @@ function App() {
   const resetReading = () => {
     setCurrentSection('home');
     setSelectedCards([]);
-    setQuestion('');
   };
 
   const getCardPositionName = (index, type) => {
-    if (type === 'single') return 'คำตอบ';
-    if (type === 'three') return ['อดีต', 'ปัจจุบัน', 'อนาคต'][index];
+    if (type === 'single') return 'ดวงวันนี้';
     if (type === 'celtic') {
       return [
-        'สถานการณ์ปัจจุบัน', 'ความท้าทาย', 'อดีตที่ห่างไกล', 'อดีตที่ใกล้',
-        'อนาคตที่เป็นไปได้', 'อนาคตใกล้', 'แนวทางของคุณ', 'อิทธิพลภายนอก',
-        'ความหวังและความกลัว', 'ผลลัพธ์สุดท้าย'
+        '1. สถานการณ์ปัจจุบัน', '2. อุปสรรคหรือสิ่งขวางทาง', ' 3. อดีตที่ผ่านมา', '4. อดีตที่ผ่านมาไม่นาน',
+        '5. สิ่งที่คุณต้องการหรือเป้าหมาย ', ' 6. สิ่งที่ลึก ๆ อยู่ในใจ',' 7. อนาคตอันใกล้','8. ตัวคุณในสถานการณ์นี้','9. สิ่งรอบตัว/คนรอบข้าง','10. ผลลัพธ์สุดท้าย'
       ][index];
     }
     return '';
@@ -93,8 +87,6 @@ function App() {
         {currentSection === 'result' && (
           <ResultSection
             selectedCards={selectedCards}
-            userName={userName}
-            question={question}
             spreadType={spreadType}
             spreadTypes={spreadTypes}
             getCardPositionName={getCardPositionName}
