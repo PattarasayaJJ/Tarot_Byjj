@@ -69,7 +69,7 @@ function App() {
   };
 
   const getCardPositionName = (index, type) => {
-    if (type === 'single') return 'ดวงวันนี้';
+    if (type === 'single') return 'ดวงวันนี้นะคะนะครับแหม';
     if (type === 'celtic') {
       return [
         '1. สถานการณ์ปัจจุบัน',
@@ -85,7 +85,7 @@ function App() {
       ][index];
     }
     if (type === 'love') {
-      return 'ดวงความรักช่วงนี้';
+      return 'ดวงความรักช่วงนี้นะจ๊ะ';
     }
     return '';
   };

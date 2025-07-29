@@ -18,32 +18,31 @@ className="absolute top-6 right-6 text-sm bg-purple-900 bg-opacity-50 text-white
         กดอ่านหน่อยจิ
       </button>
 
-      {/* popup/modal */}
       {showBio && (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
-          <div className="bg-white text-purple-900 rounded-xl p-6 w-full max-w-md shadow-lg relative">
-            <button
-              onClick={() => setShowBio(false)}
-              className="absolute top-2 right-4 text-2xl text-gray-600 hover:text-black"
-            >
-              &times;
-            </button>
-            <h2 className="text-xl font-bold mb-2">รู้จักน้องเจเจ ให้มากขึ้น!</h2>
-            <p className="text-sm mb-4">
-              สวัสดี <strong>น้องเจเจเอง</strong> 👻 หมอเดา แต่แม่นมากกก 
-              เพื่อนบอกมาแต่ต้องดูส่วนตัวนะค่าดูนาทีละ 55555555 บาท ถ้าคิดว่ามีเงินจ่ายก็ทักมาเลย
-              ใครไม่มีก็ดูฟรีไปนะจ๊ะ โค้ดที่เขียนระบบสุ่ม100% ไม่มีการเซตไว้ ดูขำๆอย่าซีเรียส
-            </p>
-            <p className="text-xs text-gray-500 text-center">@jjpatts_</p>
-          </div>
-        </div>
+       <div className="fixed inset-0 bg-black bg-opacity-70 flex items-center justify-center z-50">
+  <div className="bg-white text-purple-900 rounded-xl p-6 w-full max-w-xs shadow-lg relative">
+    <button
+      onClick={() => setShowBio(false)}
+      className="absolute top-2 right-4 text-2xl text-gray-600 hover:text-black"
+    >
+      &times;
+    </button>
+    <h2 className="text-xl font-bold mb-2">รู้จักน้องเจเจ ให้มากขึ้น!</h2>
+    <p className="text-sm mb-4">
+      สวัสดี <strong>น้องเจเจเอง</strong> 👻 หมอเดา แต่แม่นมากกก 
+      เพื่อนบอกมาแต่ต้องดูส่วนตัวนะค่าดูนาทีละ 55555555 บาท ถ้าคิดว่ามีเงินจ่ายก็ทักมาเลย
+      ใครไม่มีก็ดูฟรีไปนะจ๊ะ โค้ดที่เขียนระบบสุ่ม100% ไม่มีการเซตไว้ ดูขำๆอย่าซีเรียส
+    </p>
+    <p className="text-xs text-gray-500 text-center">@jjpatts_</p>
+  </div>
+</div>
+
       )}
 
-      <h1 className="text-3xl mb-12 mt-10 font-bold tracking-wide text-white text-center animate-float-around glow-text">
+      <h1 className="text-3xl mb-12 mt-20 font-bold tracking-wide text-white text-center animate-float-around glow-text">
         ดูดวงกับน้องเจเจ
       </h1>
 
-      {/* ไพ่เรียงแนวนอน */}
       <div className="flex justify-center items-center gap-6 mb-8 flex-wrap">
         {filteredSpreadTypes.map(type => (
           <div

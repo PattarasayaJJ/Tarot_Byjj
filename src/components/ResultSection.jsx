@@ -8,9 +8,8 @@ export default function ResultSection({
   resetReading
 }) {
   return (
-    <div className="p-6 max-w-3xl mx-auto text-white">
-      <p className="mb-6">
-        {spreadTypes.find(s => s.id === spreadType)?.name || ''}
+    <div className="p-10 max-w-3xl mx-auto text-white">
+    <p className="font-semibold text-base text-yellow-300 mb-6 ">        {spreadTypes.find(s => s.id === spreadType)?.name || ''}
       </p>
 
       <div className="flex flex-col gap-5 mb-5">
@@ -39,7 +38,7 @@ className="w-full h-full object-contain rounded-lg"                    />
               </div>
 
               <div>
-                <p className="font-bold text-lg">
+                <p className="font-bold text-sm">
                   {card.name} ({card.thai})
                 </p>
                 <p className="text-sm mt-1 max-w-lg">{card.meaning}</p>
