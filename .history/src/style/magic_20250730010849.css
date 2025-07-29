@@ -1,0 +1,47 @@
+/* พื้นหลังแบบดวงดาว */
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  animation: sparkle 4s linear infinite;
+  z-index: 0;
+}
+
+@keyframes sparkle {
+  0% { background-position: 0 0, 0 0; }
+  100% { background-position: 100px 100px, 50px 50px; }
+}
+
+/* สปินเนอร์วงเวทย์ */
+.magic-circle {
+  border: 4px solid #b084f5;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  border-top: 4px solid transparent;
+  animation: spin 2s linear infinite;
+  box-shadow: 0 0 20px #b084f5, 0 0 40px #a855f7;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ข้อความเรืองแสง */
+.magic-glow {
+  text-shadow: 0 0 5px #fff, 0 0 10px #a855f7, 0 0 20px #6b21a8;
+}
+
+/* ค่อยๆ โผล่มา */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-in-out forwards;
+}
